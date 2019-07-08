@@ -1,0 +1,94 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+index:
+  path: /
+  controller: App\Controller\IndexController::index
+  methods: GET
+
+ping:
+  path: /ping
+  controller: App\Controller\IndexController::ping
+  methods: GET
+
+error:
+  path: /error
+  controller: App\Controller\ErrorController::error
+  methods: GET
+
+api-ping:
+  path: /api/ping
+  controller: App\Api\Controller\IndexController::ping
+  methods: GET
+
+list-news:
+  path: /news
+  controller: App\Controller\NewsController::list
+  methods: GET
+
+list-article:
+  path: /news/{id<\d+>}
+  controller: App\Controller\NewsController::article
+  methods: GET
+
+create-article:
+  path: /news/create
+  controller: App\Controller\NewsController::create
+  methods: GET|POST
+
+update-article:
+  path: /news/{id<\d+>}/update
+  controller: App\Controller\NewsController::update
+  methods: GET|POST
+
+delete-article:
+  path: /news/{id<\d+>}/delete
+  controller: App\Controller\NewsController::delete
+  methods: POST
+
+api-list-news:
+  path: /api/news
+  controller: App\Api\Controller\NewsController::list
+  methods: GET
+
+api-list-article:
+  path: /api/news/{id<\d+>}
+  controller: App\Api\Controller\NewsController::article
+  methods: GET
+
+api-create-article:
+  path: /api/news
+  controller: App\Api\Controller\NewsController::create
+  methods: POST
+
+api-create-article-validate:
+  path: /api/news/validate
+  controller: App\Api\Controller\NewsController::validate
+  methods: POST
+
+api-update-article:
+  path: /api/news/{id<\d+>}
+  controller: App\Api\Controller\NewsController::update
+  methods: PUT
+
+api-update-article-validate:
+  path: /api/news/{id<\d+>}/validate
+  controller: App\Api\Controller\NewsController::validate
+  methods: PUT
+
+api-delete-article:
+  path: /api/news/{id<\d+>}
+  controller: App\Api\Controller\NewsController::delete
+  methods: DELETE
+
+api-catch-all:
+  path: /api/{everything}
+  controller: App\Api\Controller\IndexController::notAllowed
+  requirements:
+    everything: ".+"
+
+catch-all:
+  path: /{anything}
+  controller: App\Controller\ErrorController::notFound
+  requirements:
+    anything: ".+"

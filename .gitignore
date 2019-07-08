@@ -1,0 +1,17 @@
+
+###> symfony/framework-bundle ###
+**/.env.local
+**/.env.local.php
+**/.env.*.local
+**/public/bundles/
+**/var/
+**/vendor/
+**/node_modules/
+###< symfony/framework-bundle ###
+
+logs/*
+!logs/.gitkeep
+/var/log/*
+!application/var/log/.gitkeep
+
+.idea/

@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block main %}
+<div class="row heading justify-content-between">
+    <div class="col-4 latest-news">
+        Latest News
+        <span>Never miss a thing</span>
+    </div>
+    <div class="col-4">
+        <div class="float-right more-news">
+            <a href="/news">More News</a>
+        </div>
+    </div>
+</div>
+<section class="row news justify-content-between">
+    {% for row in news %}
+        <article>
+            <figure>
+                {%  if loop.index is odd %}
+                    <img src="/images/news/sample1.png" alt="">
+                {% else %}
+                    <img src="/images/news/sample2.png" alt="">
+                {% endif %}
+                <figcaption class="watermark"></figcaption>
+            </figure>
+            <div class="date">{{ row.publishedDate }}</div>
+            <div class="category">News</div>
+            <div class="title">{{ row.title }}</div>
+            <div class="sub-title">{{ row.subTitle }}</div>
+        </article>
+    {% endfor %}
+</section>
+{%  endblock %}
